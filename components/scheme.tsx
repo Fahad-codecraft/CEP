@@ -147,6 +147,7 @@ const schemes: Scheme[] = [
 	},
 ]
 
+
 export default function Schemes() {
 	const [expandedScheme, setExpandedScheme] = useState<number | null>(null)
 	const [selectedTab, setSelectedTab] = useState<"OldAge" | "Orphan">("OldAge")
@@ -164,30 +165,49 @@ export default function Schemes() {
 		window.open(`https://www.google.com/maps/search/${encodeURIComponent(query)}`, "_blank")
 	}
 
-
 	return (
 		<>
-
 			<div className="min-h-screen bg-black rounded-lg p-4 sm:p-6 lg:p-8">
 				<div className="max-w-4xl mx-auto">
-					<header className="text-center mb-8">
-						<h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Indian Government Schemes</h1>
-						<p className="text-xl text-gray-600">Access information about benefits and required documents</p>
+					<header className="text-center mb-8 px-4">
+						<h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Indian Government Schemes</h1>
+						<p className="text-md sm:text-lg text-gray-600">Access information about benefits and required documents</p>
 					</header>
 
+					<div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
+						<Button
+							className="bg-yellow-500 text-black font-semibold hover:bg-yellow-600"
+							onClick={() => {
+								setSelectedTab("OldAge")
+								handleOpenMaps()
+							}}
+						>
+							Find Nearby Old Age Homes
+						</Button>
+						<Button
+							className="bg-yellow-500 text-black font-semibold hover:bg-yellow-600"
+							onClick={() => {
+								setSelectedTab("Orphan")
+								handleOpenMaps()
+							}}
+						>
+							Find Nearby Orphanages
+						</Button>
+					</div>
+
 					<Tabs value={selectedTab} onValueChange={(value) => setSelectedTab(value as "OldAge" | "Orphan")} >
-						<TabsList className="flex justify-center mb-6">
-							<TabsTrigger value="OldAge" className="text-white">Old Age Schemes</TabsTrigger>
-							<TabsTrigger value="Orphan" className="text-white">Orphan Schemes</TabsTrigger>
+						<TabsList className="flex justify-center mb-6 px-2">
+							<TabsTrigger value="OldAge" className="text-white text-sm sm:text-base px-2">Old Age Schemes</TabsTrigger>
+							<TabsTrigger value="Orphan" className="text-white text-sm sm:text-base px-2">Orphan Schemes</TabsTrigger>
 						</TabsList>
 
 						<TabsContent value="OldAge">
-							<main>
+							<main className="px-2 sm:px-0">
 								{filteredSchemes.map((scheme) => (
 									<Card key={scheme.id} className="mb-4">
 										<CardHeader>
 											<CardTitle className="flex justify-between items-center">
-												<span className="text-xl">{scheme.name}</span>
+												<span className="text-md sm:text-xl">{scheme.name}</span>
 												<Button
 													variant="ghost"
 													size="sm"
@@ -196,34 +216,34 @@ export default function Schemes() {
 													aria-controls={`scheme-${scheme.id}-content`}
 												>
 													{expandedScheme === scheme.id ? (
-														<ChevronUp className="h-6 w-6" />
+														<ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
 													) : (
-														<ChevronDown className="h-6 w-6" />
+														<ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
 													)}
 													<span className="sr-only">
 														{expandedScheme === scheme.id ? "Collapse" : "Expand"}
 													</span>
 												</Button>
 											</CardTitle>
-											<CardDescription>{scheme.description}</CardDescription>
+											<CardDescription className="text-sm sm:text-base">{scheme.description}</CardDescription>
 										</CardHeader>
 										{expandedScheme === scheme.id && (
-											<CardContent id={`scheme-${scheme.id}-content`}>
-												<div className="mt-4">
-													<h3 className="font-semibold text-lg mb-2">Required Paperwork:</h3>
-													<ul className="list-disc pl-5 mb-4">
+											<CardContent id={`scheme-${scheme.id}-content`} className="text-sm sm:text-base">
+												<div className="mt-2 sm:mt-4">
+													<h3 className="font-semibold mb-1 sm:mb-2">Required Paperwork:</h3>
+													<ul className="list-disc pl-4 sm:pl-5 mb-2 sm:mb-4">
 														{scheme.paperwork.map((item, index) => (
 															<li key={index}>{item}</li>
 														))}
 													</ul>
-													<h3 className="font-semibold text-lg mb-2">Required Documents:</h3>
-													<ul className="list-disc pl-5">
+													<h3 className="font-semibold mb-1 sm:mb-2">Required Documents:</h3>
+													<ul className="list-disc pl-4 sm:pl-5">
 														{scheme.documents.map((item, index) => (
 															<li key={index}>{item}</li>
 														))}
 													</ul>
 													{scheme.link && (
-														<div className="mt-4">
+														<div className="mt-3 sm:mt-4">
 															<a href={scheme.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
 																Learn more about this scheme
 															</a>
@@ -235,16 +255,16 @@ export default function Schemes() {
 									</Card>
 								))}
 							</main>
-							<Button className="mt-4" onClick={handleOpenMaps}>Find Nearby Old Age Homes</Button>
+							{/* <Button className="mt-4 w-full sm:w-auto" onClick={handleOpenMaps}>Find Nearby Old Age Homes</Button> */}
 						</TabsContent>
 
 						<TabsContent value="Orphan">
-							<main>
+							<main className="px-2 sm:px-0">
 								{filteredSchemes.map((scheme) => (
 									<Card key={scheme.id} className="mb-4">
 										<CardHeader>
 											<CardTitle className="flex justify-between items-center">
-												<span className="text-xl">{scheme.name}</span>
+												<span className="text-md sm:text-xl">{scheme.name}</span>
 												<Button
 													variant="ghost"
 													size="sm"
@@ -253,34 +273,34 @@ export default function Schemes() {
 													aria-controls={`scheme-${scheme.id}-content`}
 												>
 													{expandedScheme === scheme.id ? (
-														<ChevronUp className="h-6 w-6" />
+														<ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
 													) : (
-														<ChevronDown className="h-6 w-6" />
+														<ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
 													)}
 													<span className="sr-only">
 														{expandedScheme === scheme.id ? "Collapse" : "Expand"}
 													</span>
 												</Button>
 											</CardTitle>
-											<CardDescription>{scheme.description}</CardDescription>
+											<CardDescription className="text-sm sm:text-base">{scheme.description}</CardDescription>
 										</CardHeader>
 										{expandedScheme === scheme.id && (
-											<CardContent id={`scheme-${scheme.id}-content`}>
-												<div className="mt-4">
-													<h3 className="font-semibold text-lg mb-2">Required Paperwork:</h3>
-													<ul className="list-disc pl-5 mb-4">
+											<CardContent id={`scheme-${scheme.id}-content`} className="text-sm sm:text-base">
+												<div className="mt-2 sm:mt-4">
+													<h3 className="font-semibold mb-1 sm:mb-2">Required Paperwork:</h3>
+													<ul className="list-disc pl-4 sm:pl-5 mb-2 sm:mb-4">
 														{scheme.paperwork.map((item, index) => (
 															<li key={index}>{item}</li>
 														))}
 													</ul>
-													<h3 className="font-semibold text-lg mb-2">Required Documents:</h3>
-													<ul className="list-disc pl-5">
+													<h3 className="font-semibold mb-1 sm:mb-2">Required Documents:</h3>
+													<ul className="list-disc pl-4 sm:pl-5">
 														{scheme.documents.map((item, index) => (
 															<li key={index}>{item}</li>
 														))}
 													</ul>
 													{scheme.link && (
-														<div className="mt-4">
+														<div className="mt-3 sm:mt-4">
 															<a href={scheme.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
 																Learn more about this scheme
 															</a>
@@ -292,7 +312,7 @@ export default function Schemes() {
 									</Card>
 								))}
 							</main>
-							<Button className="mt-4" onClick={handleOpenMaps}>Find Nearby Orphanages</Button>
+							{/* <Button className="mt-4 w-full sm:w-auto" onClick={handleOpenMaps}>Find Nearby Orphanages</Button> */}
 						</TabsContent>
 					</Tabs>
 				</div>
