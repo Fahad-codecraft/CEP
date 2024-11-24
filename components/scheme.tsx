@@ -167,14 +167,14 @@ export default function Schemes() {
 
 	return (
 		<>
-			<div className="min-h-screen bg-black rounded-lg p-4 sm:p-6 lg:p-8">
+			<div className="min-h-screen bg-black rounded-lg p-4 sm:p-6 lg:p-8 mt-20">
 				<div className="max-w-4xl mx-auto">
 					<header className="text-center mb-8 px-4">
-						<h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Indian Government Schemes</h1>
+						<h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Indian Government Schemes for Old Age and Orphanages</h1>
 						<p className="text-md sm:text-lg text-gray-600">Access information about benefits and required documents</p>
 					</header>
 
-					<div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
+					<div className="flex flex-col md:flex-row md:hidden justify-center gap-4 mb-6">
 						<Button
 							className="bg-yellow-500 text-black font-semibold hover:bg-yellow-600"
 							onClick={() => {
