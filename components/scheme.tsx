@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import Footer from './Footer'
 
 // Define structure for each scheme
 type Scheme = {
@@ -317,6 +318,7 @@ export default function Schemes() {
 					</Tabs>
 				</div>
 			</div>
+			<Footer />
 		</>
 	)
 }

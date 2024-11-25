@@ -21,6 +21,9 @@ const Navbar = () => {
           <Link href="/about" className="hover:text-gray-300 font-bold text-lg">
             About
           </Link>
+          <Link href="/contact-us" className="hover:text-gray-300 font-bold text-lg">
+            Contact Us
+          </Link>
         </div>
 
         {/* Action Buttons */}
