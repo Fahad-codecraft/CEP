@@ -20,12 +20,6 @@ This website was created to extend our efforts in **serving old age homes** and 
 2. **Location Finder**: Discover nearby old age homes and orphanages with a detailed map view.  
 3. **User-Friendly Design**: Simplified navigation and easy access to information for all users.  
 
-## 🚀 Technology Stack  
-
-- **Frontend**: HTML, CSS, JavaScript  
-- **Backend**: [Specify framework if applicable, e.g., Node.js, Flask, etc.]  
-- **Database**: [Specify database, e.g., MySQL, MongoDB, etc.]  
-- **APIs**: [List any APIs used, e.g., Google Maps API]  
 
 ## 📌 How to Use  
 

@@ -18,15 +18,17 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-4xl font-bold text-center mb-8">About Our Team</h1>
 
-          <p className="text-lg text-center mb-12">
-            At PCCoE, we are dedicated to bringing hope and support to those who need it the most—elderly residents in old age homes and orphaned students.
-            Our mission is to connect them with government schemes that provide care, security, and opportunities for a brighter future. By simplifying access to these benefits, we aim to ensure that no one feels forgotten or left behind.
-            Together, let’s create a world where every life is valued, cherished, and uplifted.
-          </p>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <p className="text-lg font-semibold">
+              At PCCoE, we are dedicated to bringing hope and support to those who need it the most—elderly residents in old age homes and orphaned students.
+              Our mission is to connect them with government schemes that provide care, security, and opportunities for a brighter future. By simplifying access to these benefits, we aim to ensure that no one feels forgotten or left behind.
+              Together, let’s create a world where every life is valued, cherished, and uplifted.
+            </p>
+          </div>
 
           <Card className="mb-12 bg-gray-800 text-white">
             <CardHeader>
-              <CardTitle>Our Mentor</CardTitle>
+              <CardTitle className="text-2xl">Our Mentor</CardTitle>
             </CardHeader>
             <CardContent className="flex items-center space-x-4">
               <Avatar className="h-24 w-24">

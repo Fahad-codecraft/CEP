@@ -197,7 +197,7 @@ export default function Schemes() {
 					</div>
 
 					<Tabs value={selectedTab} onValueChange={(value) => setSelectedTab(value as "OldAge" | "Orphan")} >
-						<TabsList className="flex justify-center mb-6 px-2">
+						<TabsList className="flex justify-evenly mb-6 px-2">
 							<TabsTrigger value="OldAge" className="text-white text-sm sm:text-base px-2">Old Age Schemes</TabsTrigger>
 							<TabsTrigger value="Orphan" className="text-white text-sm sm:text-base px-2">Orphan Schemes</TabsTrigger>
 						</TabsList>
